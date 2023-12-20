@@ -1,9 +1,10 @@
+import Sidebar from "./Components/Sidebar";
 import "./global.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <Sidebar />
     </div>
   );
 }
