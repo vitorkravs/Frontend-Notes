@@ -1,0 +1,11 @@
+main {
+  flex: 1;
+  margin-left: 350px;
+}
+
+main ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  list-style: none;
+}
