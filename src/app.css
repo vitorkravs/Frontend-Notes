@@ -6,3 +6,19 @@
   flex-direction: row;
   align-items: flex-start;
 }
+
+@media (max-width: 1000px) {
+  .App {
+    flex-direction: column;
+    align-items: unset;
+  }
+
+  .App main {
+    margin-left: 0;
+    margin-top: 30px;
+  }
+
+  .App aside {
+    width: 100%;
+  }
+}
