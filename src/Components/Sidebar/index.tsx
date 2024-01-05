@@ -4,23 +4,32 @@ import api from "../../Services/api";
 
 import "./styles.css";
 
-function Sidebar({ allNotes, setAllNotes }: any) {
-  const [title, setTitles] = useState("");
-  const [notes, setNotes] = useState("");
+//Interfaces
+import { SidebarProps } from "../../Interfaces/Note";
 
-  async function handleSubmit(e: any) {
+function Sidebar({ allNotes, setAllNotes }: SidebarProps) {
+  const [title, setTitles] = useState<string>("");
+  const [notes, setNotes] = useState<string>("");
+
+  // Função para lidar com o envio do formulário
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    try {
+      // Chama a API para salvar a nota
+      const response = await api.post("/annotations", {
+        title,
+        notes,
+        priority: false,
+      });
+      // Limpa os campos de entrada após o sucesso do envio
+      setTitles("");
+      setNotes("");
 
-    const response = await api.post("/annotations", {
-      title,
-      notes,
-      priority: false,
-    });
-
-    setTitles("");
-    setNotes("");
-
-    setAllNotes([...allNotes, response.data]);
+      // Atualiza o estado allNotes com os dados recebidos do servidor
+      setAllNotes([...allNotes, response.data]);
+    } catch (error) {
+      console.error("Erro ao salvar a nota:", error);
+    }
   }
 
   return (
@@ -32,7 +41,7 @@ function Sidebar({ allNotes, setAllNotes }: any) {
           <input
             required
             value={title}
-            onChange={(e) => setTitles(e.target.value)}
+            onChange={({ target }) => setTitles(target.value)}
           />
         </div>
         <div className="input-block">
@@ -40,7 +49,7 @@ function Sidebar({ allNotes, setAllNotes }: any) {
           <textarea
             required
             value={notes}
-            onChange={(e) => setNotes(e.target.value)}
+            onChange={({ target }) => setNotes(target.value)}
           />
         </div>
 

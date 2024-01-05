@@ -6,13 +6,17 @@ import "./global.css";
 import "./app.css";
 import "./main.css";
 
+//Interfaces
+import { Note } from "./Interfaces/Note";
+
 //componentes
 import Sidebar from "./Components/Sidebar";
 import Notes from "./Components/Notes";
 
 function App() {
-  const [allNotes, setAllNotes] = useState([]);
+  const [allNotes, setAllNotes] = useState<Note[]>([]);
 
+  // Obtém todas as notas da API e atualiza o estado.
   useEffect(() => {
     async function getAllNotes() {
       const response = await api.get("/annotations");
@@ -29,7 +33,7 @@ function App() {
       <main>
         <ul>
           {allNotes.map((data) => (
-            <Notes data={data} />
+            <Notes key={data._id} data={data} />
           ))}
         </ul>
       </main>
