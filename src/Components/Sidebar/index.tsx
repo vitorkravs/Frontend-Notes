@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import api from "../../Services/api";
 
@@ -32,6 +32,23 @@ function Sidebar({ allNotes, setAllNotes }: SidebarProps) {
     }
   }
 
+  useEffect(() => {
+    function enableSubmitButton() {
+      let btn = document.getElementById("btn-submit");
+      if (btn) {
+        btn.style.background = "#736672";
+        btn.style.color = "#FFFFFF";
+
+        if (title && notes) {
+          btn.style.background = "#f25ee4";
+          btn.style.color = "white";
+        }
+      }
+    }
+
+    enableSubmitButton();
+  }, [title, notes]);
+
   return (
     <aside>
       <strong>Caderno de Notas</strong>
@@ -53,7 +70,9 @@ function Sidebar({ allNotes, setAllNotes }: SidebarProps) {
           />
         </div>
 
-        <button type="submit">Salvar</button>
+        <button type="submit" id="btn-submit">
+          Salvar
+        </button>
       </form>
     </aside>
   );

@@ -34,6 +34,7 @@ li.notepad-infos textarea {
   height: 130px;
   font-size: 14px;
   color: white;
+  cursor: pointer;
   border: 0;
   border-radius: 5px;
   background: #995ef2;
