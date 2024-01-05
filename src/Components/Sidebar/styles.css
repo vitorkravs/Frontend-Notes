@@ -43,6 +43,7 @@ aside form .input-block input {
   border-radius: 5px;
   text-align: center;
   font-size: 14px;
+  cursor: pointer;
   color: white;
 }
 
@@ -54,6 +55,7 @@ aside form .input-block textarea {
   border: none;
   border-radius: 5px;
   font-size: 14px;
+  cursor: pointer;
   resize: none;
   padding: 10px;
   color: white;
