@@ -39,13 +39,35 @@ function App() {
     }
   };
 
+  const handleUpdateNote = async (
+    noteId: number,
+    updatedNote: { title: string; notes: string }
+  ) => {
+    try {
+      // Implemente a lógica para fazer a atualização da nota na API
+      const response = await api.put(`/annotations/${noteId}`, updatedNote);
+
+      // Atualiza o estado com a nota atualizada
+      setAllNotes((prevNotes) =>
+        prevNotes.map((note) => (note._id === noteId ? response.data : note))
+      );
+    } catch (error) {
+      console.error("Erro ao atualizar a nota:", error);
+    }
+  };
+
   return (
     <div className="App">
       <Sidebar allNotes={allNotes} setAllNotes={setAllNotes} />
       <main>
         <ul>
           {allNotes.map((data) => (
-            <Notes key={data._id} data={data} onRemove={handleRemoveNote} />
+            <Notes
+              key={data._id}
+              data={data}
+              onRemove={handleRemoveNote}
+              onUpdate={handleUpdateNote}
+            />
           ))}
         </ul>
       </main>
