@@ -1,11 +1,22 @@
 import { useState } from "react";
 
 import "./styles.css";
-import { AiTwotoneDelete, AiOutlineExclamationCircle } from "react-icons/ai";
+import {
+  AiTwotoneDelete,
+  AiOutlineExclamationCircle,
+  AiFillStar,
+  AiOutlineStar,
+} from "react-icons/ai";
 
 import { NotesProps } from "../../Interfaces/Note";
+import api from "../../Services/api";
 
-const Notes: React.FC<NotesProps> = ({ data, onRemove, onUpdate }) => {
+const Notes: React.FC<NotesProps> = ({
+  data,
+  onRemove,
+  onUpdate,
+  setAllNotes,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedTitle, setUpdatedTitle] = useState(data.title);
   const [updatedNotes, setUpdatedNotes] = useState(data.notes);
@@ -17,8 +28,23 @@ const Notes: React.FC<NotesProps> = ({ data, onRemove, onUpdate }) => {
 
   const handleUpdate = async () => {
     // Implemente a lógica para realizar a atualização
-    await onUpdate(data._id, { title: updatedTitle, notes: updatedNotes });
+    await onUpdate(data._id, {
+      title: updatedTitle,
+      notes: updatedNotes,
+    });
     setIsEditing(false);
+  };
+
+  const handleToggleFavorite = async () => {
+    try {
+      // Envie uma solicitação para alterar a prioridade da nota no backend
+      await api.put(`/priorities/${data._id}`);
+      const response = await api.get("/annotations");
+
+      setAllNotes(response.data);
+    } catch (error) {
+      console.error("Erro ao alterar a prioridade da nota:", error);
+    }
   };
 
   const renderTitle = () => {
@@ -60,6 +86,14 @@ const Notes: React.FC<NotesProps> = ({ data, onRemove, onUpdate }) => {
     );
   };
 
+  const renderFavoriteButton = () => {
+    return (
+      <button className="edit-priority" onClick={handleToggleFavorite}>
+        {data.priority ? <AiFillStar /> : <AiOutlineStar />}
+      </button>
+    );
+  };
+
   return (
     <li className="notepad-infos">
       <div>
@@ -70,6 +104,7 @@ const Notes: React.FC<NotesProps> = ({ data, onRemove, onUpdate }) => {
       </div>
       {renderTextArea()}
       <span>{renderButtons()}</span>
+      <span>{renderFavoriteButton()}</span>
     </li>
   );
 };

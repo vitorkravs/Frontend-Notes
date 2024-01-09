@@ -7,9 +7,13 @@ import "./styles.css";
 //Interfaces
 import { SidebarProps } from "../../Interfaces/Note";
 
-function Sidebar({ allNotes, setAllNotes }: SidebarProps) {
+function Sidebar({ allNotes, setAllNotes, filter, setFilter }: SidebarProps) {
   const [title, setTitles] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
+
+  const handleFilterChange = (newFilter: any) => {
+    setFilter(newFilter);
+  };
 
   // Função para lidar com o envio do formulário
   async function handleSubmit(e: React.FormEvent) {
@@ -57,6 +61,7 @@ function Sidebar({ allNotes, setAllNotes }: SidebarProps) {
           <label htmlFor="title">Título da Anotação: </label>
           <input
             required
+            maxLength={37}
             value={title}
             onChange={({ target }) => setTitles(target.value)}
           />
@@ -74,6 +79,29 @@ function Sidebar({ allNotes, setAllNotes }: SidebarProps) {
           Salvar
         </button>
       </form>
+
+      <div id="radio">
+        <label className="priority-radio-text">
+          <input
+            className="radio-priority"
+            type="radio"
+            value="all"
+            checked={filter === "all"}
+            onChange={() => handleFilterChange("all")}
+          />
+          Todos
+        </label>
+        <label className="priority-radio-text">
+          <input
+            className="radio-priority"
+            type="radio"
+            value="favorites"
+            checked={filter === "favorites"}
+            onChange={() => handleFilterChange("favorites")}
+          />
+          Favoritos
+        </label>
+      </div>
     </aside>
   );
 }

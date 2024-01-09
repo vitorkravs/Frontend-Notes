@@ -78,3 +78,9 @@ li.notepad-infos span button {
 li.notepad-infos span button:hover {
   font-size: 18px;
 }
+
+li.notepad-infos span .edit-priority {
+  color: #995ef2;
+  background-color: yellow;
+  margin-left: 15px;
+}

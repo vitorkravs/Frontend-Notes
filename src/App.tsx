@@ -15,6 +15,7 @@ import Notes from "./Components/Notes";
 
 function App() {
   const [allNotes, setAllNotes] = useState<Note[]>([]);
+  const [filter, setFilter] = useState<"all" | "favorites">("all");
 
   // Obtém todas as notas da API e atualiza o estado.
   useEffect(() => {
@@ -56,15 +57,26 @@ function App() {
     }
   };
 
+  const filteredNotes =
+    filter === "favorites"
+      ? allNotes.filter((note) => note.priority)
+      : allNotes;
+
   return (
     <div className="App">
-      <Sidebar allNotes={allNotes} setAllNotes={setAllNotes} />
+      <Sidebar
+        allNotes={allNotes}
+        setAllNotes={setAllNotes}
+        filter={filter}
+        setFilter={setFilter}
+      />
       <main>
         <ul>
-          {allNotes.map((data) => (
+          {filteredNotes.map((data) => (
             <Notes
               key={data._id}
               data={data}
+              setAllNotes={setAllNotes}
               onRemove={handleRemoveNote}
               onUpdate={handleUpdateNote}
             />

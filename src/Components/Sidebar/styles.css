@@ -65,7 +65,7 @@ aside form button[type="submit"] {
   background-color: white;
   color: #f25ee4;
   width: 100%;
-  margin-top: 30px;
+  margin: 30px 0;
   border: none;
   border-radius: 5px;
   padding: 15px 20px;
@@ -78,4 +78,18 @@ aside form button[type="submit"] {
 aside form button[type="submit"]:hover {
   background-color: #f25ee4;
   color: white;
+}
+
+aside #radio {
+  display: flex;
+}
+
+aside #radio .priority-radio-text {
+  color: white;
+  font-weight: bold;
+  margin: auto;
+}
+
+aside #radio .priority-radio-text .radio-priority {
+  margin-right: 5px;
 }
