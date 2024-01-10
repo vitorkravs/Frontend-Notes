@@ -2,6 +2,8 @@
 
 Bem-vindo ao Frontend-Notes, um aplicativo de notas com interface de usuário desenvolvida por Vitor Kravs.
 
+Pode ser acessado aqui: https://frontend-notes-two.vercel.app/
+
 ## Descrição
 
 O Frontend-Notes é a interface de usuário para o aplicativo de notas fullstack que permite a criação, visualização e gerenciamento eficiente de suas notas. Este projeto é construído com React, utilizando TypeScript para uma experiência de desenvolvimento mais robusta e tipada.
