@@ -1,0 +1,86 @@
+li.notepad-infos div {
+  display: flex;
+  justify-content: space-between;
+}
+
+li.notepad-infos {
+  background-color: #0ef529;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px 20px 10px 20px;
+}
+
+li.notepad-infos strong {
+  display: block;
+  font-size: 16px;
+  cursor: default;
+  color: white;
+}
+
+li.notepad-infos .edit-title {
+  background-color: #f25ee4;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+li.notepad-infos div div {
+  color: white;
+  background-color: #995ef2;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+li.notepad-infos div div:hover {
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+li.notepad-infos textarea {
+  padding: 7px;
+  margin: 7px 0 10px 0;
+  width: 100%;
+  height: 130px;
+  font-size: 14px;
+  color: white;
+  cursor: default;
+  border: 0;
+  border-radius: 5px;
+  background: #995ef2;
+  resize: none;
+}
+
+li.notepad-infos .edit-textarea {
+  background-color: #f25ee4;
+  cursor: pointer;
+}
+
+li.notepad-infos span button {
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #f25ee4;
+  padding: 7px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+li.notepad-infos span button:hover {
+  font-size: 18px;
+}
+
+li.notepad-infos span .edit-priority {
+  color: #995ef2;
+  background-color: yellow;
+  margin-left: 15px;
+}

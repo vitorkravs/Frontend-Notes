@@ -12,6 +12,7 @@ import { Note } from "./Interfaces/Note";
 //componentes
 import Sidebar from "./Components/Sidebar";
 import Notes from "./Components/Notes";
+import FixedNote from "./Components/FixedNote";
 
 function App() {
   const [allNotes, setAllNotes] = useState<Note[]>([]);
@@ -72,6 +73,7 @@ function App() {
       />
       <main>
         <ul>
+          <FixedNote />
           {filteredNotes.map((data) => (
             <Notes
               key={data._id}
