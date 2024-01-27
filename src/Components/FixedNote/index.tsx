@@ -10,7 +10,7 @@ const FixedNote = () => {
     "Aqui, você pode criar, visualizar e gerenciar suas notas, " +
     "Se precisar de ajuda ou tiver alguma dúvida, " +
     "pode entrar em contato comigo: www.linkedin.com/in/vitorkravszenko/ " +
-    "Observação: Caso haja um atraso ao inserir notas, nosso banco de " +
+    "Observação: Caso haja um atraso ao inserir notas, meu banco de " +
     "dados online pode estar se conectando. Geralmente, isso leva " +
     "apenas um minuto. Agradeço sua paciência." 
 
