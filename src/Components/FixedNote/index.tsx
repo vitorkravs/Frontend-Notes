@@ -6,11 +6,13 @@ import {
 
 const FixedNote = () => {
   const agradecimento =
-    "Bem-vindo à Nota Fixa! Esta é uma nota fixa de meu site, onde agradeço " +
-    "sua visita. Aqui, ofereço uma experiência simplificada para criar, " +
-    "visualizar e gerenciar suas notas. Se precisar de ajuda ou tiver alguma " +
-    "dúvida, pode entrar em contato comigo. " +
-    "https://www.linkedin.com/in/vitor-kravszenko-80748a234/";
+    "Bem-vindo à Nota Fixa! Agradeço sua visita. " +
+    "Aqui, você pode criar, visualizar e gerenciar suas notas, " +
+    "Se precisar de ajuda ou tiver alguma dúvida, " +
+    "pode entrar em contato comigo: www.linkedin.com/in/vitorkravszenko/ " +
+    "Observação: Caso haja um atraso ao inserir notas, nosso banco de " +
+    "dados online pode estar se conectando. Geralmente, isso leva " +
+    "apenas um minuto. Agradeço sua paciência." 
 
   return (
     <li className="notepad-infos">
